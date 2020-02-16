@@ -2,6 +2,7 @@
 #include "Vector2d.h"
 #include <iostream>
 #include "cmath"
+#include <string>
 using namespace std;
 
 Vector2d::Vector2d()
@@ -82,4 +83,73 @@ double Vector2d::Tan(Vector2d v)
 	{
 		return sqrt(1 / pow(cos, 2) - 1)*-1;
 	}
+}
+Vector2d Vector2d::operator+(const Vector2d& vector) const
+{
+	return Vector2d(x + vector.x, y + vector.y);
+}
+Vector2d Vector2d::operator-(const Vector2d& vector) const
+{
+	return Vector2d(x - vector.x, y - vector.y);
+}
+double Vector2d::operator*(const Vector2d& vector) const
+{
+	return x * vector.x + y * vector.y;
+}
+Vector2d Vector2d::operator*(const double k) const
+{
+	return Vector2d(x*k, y*k);
+}
+Vector2d operator*(double realNumber, Vector2d vector)
+{
+	return vector * realNumber;
+}
+Vector2d& Vector2d::operator++()
+{
+	x++;
+	y++;
+	return *this;
+}
+Vector2d Vector2d::operator++(int)
+{
+	Vector2d temp(x, y);
+	x++;
+	y++;
+	return temp;
+}
+Vector2d& Vector2d::operator--()
+{
+	x--;
+	y--;
+	return *this;
+}
+Vector2d Vector2d::operator--(int)
+{
+	Vector2d temp(x, y);
+	x--;
+	y--;
+	return temp;
+}
+const Vector2d Vector2d::operator+= (const Vector2d& vector)
+{
+	x += vector.x;
+	y += vector.y;
+	return *this;
+}
+const Vector2d Vector2d::operator-= (const Vector2d& vector)
+{
+	x -= vector.x;
+	y -= vector.y;
+	return *this;
+}
+const Vector2d Vector2d::operator*= (const double k)
+{
+	x *= k;
+	y *= k;
+	return *this;
+}
+Vector2d::operator string()
+{
+	string s = "(" + to_string(x) + ";" + to_string(y) + ")";
+	return s;
 }
