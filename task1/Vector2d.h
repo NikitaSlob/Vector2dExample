@@ -12,9 +12,9 @@ public:
 	void Sety(double);
 	double Gety();
 	void Print();
-	void Sum(Vector2d);
-	void Sub(Vector2d);
-	void Mult(double);
+	Vector2d Sum(Vector2d);
+	Vector2d Sub(Vector2d);
+	Vector2d Mult(double);
 	double ScalarMult(Vector2d);
 	double Tan(Vector2d);
 private:

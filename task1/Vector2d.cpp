@@ -49,20 +49,23 @@ void Vector2d::Print()
 {
 	cout << "x y:" << x << ' ' << y << endl;;
 }
-void Vector2d::Sum(Vector2d v)
+Vector2d Vector2d::Sum(Vector2d v)
 {
-	this->x += v.x;
-	this->y += v.y;
+	double x1 = this->x + v.x;
+	double y1 = this->y + v.y;
+	return Vector2d(x1, y1);
 }
-void Vector2d::Sub(Vector2d v)
+Vector2d Vector2d::Sub(Vector2d v)
 {
-	this->x -= v.x;
-	this->y -= v.y;
+	double x1 = this->x - v.x;
+	double y1 = this->y - v.y;
+	return Vector2d(x1, y1);
 }
-void Vector2d::Mult(double n)
+Vector2d Vector2d::Mult(double n)
 {
-	this->x *= n;
-	this->y *= n;
+	double x1 = this->x * n;
+	double y1 = this->y * n;
+	return Vector2d(x1, y1);
 }
 double Vector2d::ScalarMult(Vector2d v)
 {
@@ -70,7 +73,7 @@ double Vector2d::ScalarMult(Vector2d v)
 }
 double Vector2d::Tan(Vector2d v)
 {
-	double cos = (this->x*v.x + this->y*v.y)/(sqrt(pow(this->x,2)+pow(this->y,2))*sqrt(pow(v.x, 2) + pow(v.y, 2)));
+	double cos = (this->x*v.x + this->y*v.y) / (sqrt(pow(this->x, 2) + pow(this->y, 2))*sqrt(pow(v.x, 2) + pow(v.y, 2)));
 	if (cos > 0)
 	{
 		return sqrt(1 / pow(cos, 2) - 1);
